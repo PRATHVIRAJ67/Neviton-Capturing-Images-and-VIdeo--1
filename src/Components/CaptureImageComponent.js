@@ -5,8 +5,7 @@ import './CaptureImageComponent.css';
 const CaptureImageComponent = () => {
   const webcamRef = useRef(null);
   const [capturedImages, setCapturedImages] = useState([]);
-  const [facingMode, setFacingMode] = useState('user'); // 'user' for front camera, 'environment' for back camera
-
+  const [facingMode, setFacingMode] = useState('user'); 
   const captureImage = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     if (imageSrc) {

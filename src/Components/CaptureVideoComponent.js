@@ -6,7 +6,7 @@ const CaptureVideoComponent = () => {
   const webcamRef = useRef(null);
   const [capturedVideos, setCapturedVideos] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
-  const [facingMode, setFacingMode] = useState('user'); // 'user' for front camera, 'environment' for back camera
+  const [facingMode, setFacingMode] = useState('user');
   const mediaRecorderRef = useRef(null);
   const chunksRef = useRef([]);
 
