@@ -37,7 +37,7 @@ const CaptureVideoComponent = () => {
       mediaRecorder.start();
       setIsRecording(true);
     } else {
-      // console.error('Webcam not initialized or stream not available');
+      console.error('Webcam not initialized or stream not available');
     }
   }, []);
 

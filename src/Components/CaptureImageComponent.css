@@ -104,7 +104,7 @@
 .modal-content {
   width: 90%;
   height: 90%;
-  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+  object-fit: contain;
 }
 
 .close {
