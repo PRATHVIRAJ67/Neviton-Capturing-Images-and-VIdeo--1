@@ -1,62 +1,172 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.take-photo, .take-video {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.take-photo:hover, .take-video:hover {
+  background-color: #45a049;
+}
+
+.webcam-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+}
+
+.capture {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+}
+
+.capture:hover {
+  background-color: #45a049;
+}
+
+.image-grid, .video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.image-grid img, .video-grid video {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.toggle-camera {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.toggle-camera:hover {
+  background-color: #45a049;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 90%;
+  height: 90%;
+  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.Save{
+  gap: 12px;
+  background-color: #45a049;
+  color: white;
+  cursor: pointer;
+  border: none;
+  height: 30px;
+  width: 60px;
+  border-radius: 10px;
+}
+.SaveFullscreeen {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+.FullScreen{
+  gap: 2px;
+border-radius: 10px;
+  background-color: #45a049;
+  color: white;
+  cursor: pointer;
+  border: none;
+  height: 30px;
+  width: 90px;
+}
+
+
+@media (max-width: 600px) {
+  .toggle-camera, .capture, .take-photo, .take-video {
+    padding: 10px;
+    font-size: 14px;
   }
-  
-  .button-container {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 20px;
-  }
-  
-  .take-photo, .take-video {
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  
-  .webcam-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .capture {
-    margin-top: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-  }
-  
+
   .image-grid, .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
-  
-  .image-grid img, .video-grid video {
-    width: 100%;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-  }
-  .toggle-camera {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-  
-  }
-  
-  .toggle-camera:hover {
-    background-color: #45a049;
-  }
+}
+.back-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  background-color: #45a049;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+

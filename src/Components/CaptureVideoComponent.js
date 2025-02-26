@@ -1,4 +1,5 @@
 import React, { useRef, useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import Webcam from 'react-webcam';
 import './CaptureVideoComponent.css'; 
 
@@ -36,7 +37,7 @@ const CaptureVideoComponent = () => {
       mediaRecorder.start();
       setIsRecording(true);
     } else {
-      console.error('Webcam not initialized or stream not available');
+      // console.error('Webcam not initialized or stream not available');
     }
   }, []);
 
@@ -53,6 +54,7 @@ const CaptureVideoComponent = () => {
 
   return (
     <div className="container">
+      <Link to="/" className="back-button">Back</Link>
       <div className="webcam-container">
         <Webcam
           audio={true}

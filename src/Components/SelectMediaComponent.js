@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './SelectMediaComponent.css'; 
 
 const SelectMediaComponent = () => {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-   
     const storedFiles = JSON.parse(localStorage.getItem('files')) || [];
     setFiles(storedFiles);
   }, []);
@@ -34,6 +34,7 @@ const SelectMediaComponent = () => {
 
   return (
     <div className="container">
+      <Link to="/" className="back-button">Back</Link>
       <div className="file-input-container">
         <input
           type="file"
@@ -57,7 +58,7 @@ const SelectMediaComponent = () => {
                 ) : (
                   <video src={URL.createObjectURL(file)} controls />
                 )}
-                <button onClick={handleFullScreen}>View Full Screen</button>
+                <button className='capture' onClick={handleFullScreen}>View Full Screen</button>
               </div>
             );
           }

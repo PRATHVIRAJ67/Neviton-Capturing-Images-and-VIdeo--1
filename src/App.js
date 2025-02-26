@@ -15,15 +15,13 @@ function App() {
           <Route path="/select-media" element={<SelectMediaComponent />} />
           <Route path="/" element={
             <div className="home-container">
-              <button className="home-button">
-                <Link to="/capture-image">Capture Image</Link>
-              </button>
-              <button className="home-button">
-                <Link to="/capture-video">Capture Video</Link>
-              </button>
-              <button className="home-button">
-                <Link to="/select-media">Select Media</Link>
-              </button>
+             
+
+              <Link to="/capture-image" className="capture-image-button">Capture Image</Link>
+              <Link to="/capture-video" className="capture-video-button">Capture Video</Link>
+              <Link to="/select-media" className="select-media-button">Select Media</Link>
+           
+             
             </div>
           } />
         </Routes>
