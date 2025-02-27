@@ -2,10 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: 100%;
   padding: 20px;
   box-sizing: border-box;
+  position: relative;
 }
 
 .button-container {
@@ -14,6 +16,7 @@
   margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 }
 
 .take-photo, .take-video {
@@ -36,6 +39,13 @@
   align-items: center;
   width: 100%;
   max-width: 600px;
+  margin-top: 40px;
+}
+
+.webcam-container video {
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 8px;
 }
 
 .capture {
@@ -47,6 +57,8 @@
   background-color: #4CAF50;
   color: white;
   cursor: pointer;
+  width: 100%;
+  max-width: 300px;
 }
 
 .capture:hover {
@@ -62,12 +74,19 @@
   max-width: 800px;
 }
 
+.image-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .image-grid img, .video-grid video {
   width: 100%;
   height: auto;
   border: 2px solid #ccc;
   border-radius: 8px;
-  cursor: pointer;
+  object-fit: cover;
+  aspect-ratio: 3/4;
 }
 
 .toggle-camera {
@@ -79,9 +98,11 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 10px 0;
   cursor: pointer;
   border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
 }
 
 .toggle-camera:hover {
@@ -97,7 +118,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   z-index: 1000;
 }
 
@@ -118,7 +139,6 @@
 }
 
 .Save {
-  gap: 12px;
   background-color: #45a049;
   color: white;
   cursor: pointer;
@@ -126,6 +146,7 @@
   height: 30px;
   width: 60px;
   border-radius: 10px;
+  font-size: 14px;
 }
 
 .SaveFullscreeen {
@@ -133,10 +154,10 @@
   gap: 5px;
   justify-content: center;
   margin-top: 5px;
+  width: 100%;
 }
 
 .FullScreen {
-  gap: 2px;
   border-radius: 10px;
   background-color: #45a049;
   color: white;
@@ -144,40 +165,14 @@
   border: none;
   height: 30px;
   width: 90px;
-}
-
-@media (max-width: 600px) {
-  .toggle-camera, .capture, .take-photo, .take-video {
-    padding: 8px;
-    font-size: 12px;
-  }
-
-  .image-grid, .video-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  }
-
-  .Save, .FullScreen {
-    height: 25px;
-    width: 50px;
-    font-size: 12px;
-  }
-
-  .modal-content {
-    width: 80%;
-    height: 80%;
-  }
-
-  .close {
-    font-size: 30px;
-  }
+  font-size: 14px;
 }
 
 .back-button {
   position: absolute;
   top: 10px;
   left: 10px;
-  margin: 10px;
-  padding: 10px 20px;
+  padding: 8px 16px;
   font-size: 16px;
   text-decoration: none;
   color: white;
@@ -185,4 +180,83 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  z-index: 10;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+    padding-top: 50px;
+    justify-content: flex-start;
+  }
+  
+  .webcam-container {
+    margin-top: 20px;
+    width: 100%;
+  }
+  
+  .webcam-container video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 40vh;
+  }
+  
+  .toggle-camera, .capture {
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .image-grid, .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+  
+  .Save, .FullScreen {
+    height: 28px;
+    font-size: 12px;
+    width: auto;
+    padding: 0 10px;
+  }
+  
+  .modal-content {
+    width: 95%;
+    height: auto;
+    max-height: 90vh;
+  }
+  
+  .close {
+    font-size: 30px;
+    top: 10px;
+    right: 15px;
+  }
+  
+  .back-button {
+    top: 10px;
+    left: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+  }
+}
+
+/* Additional fixes for very small screens */
+@media (max-width: 360px) {
+  .image-grid, .video-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .SaveFullscreeen {
+    flex-direction: row;
+  }
+  
+  .webcam-container {
+    margin-top: 15px;
+  }
+  
+  .back-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
 }
