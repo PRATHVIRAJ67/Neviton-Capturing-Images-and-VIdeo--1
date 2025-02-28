@@ -19,7 +19,8 @@
 
 .capture-image-button,
 .capture-video-button,
-.select-media-button {
+.select-media-button,
+.screen-record-button {
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
@@ -36,10 +37,10 @@
 
 .capture-image-button:hover,
 .capture-video-button:hover,
-.select-media-button:hover {
+.select-media-button:hover,
+.screen-record-button:hover {
   background-color: #0056b3;
 }
-
 
 @media (max-width: 768px) {
   .home-container {
@@ -50,7 +51,8 @@
 
   .capture-image-button,
   .capture-video-button,
-  .select-media-button {
+  .select-media-button,
+  .screen-record-button {
     width: 150px;
     font-size: 14px; 
   }
@@ -65,7 +67,8 @@
 
   .capture-image-button,
   .capture-video-button,
-  .select-media-button {
+  .select-media-button,
+  .screen-record-button {
     width: 100px; 
     font-size: 12px; 
   }

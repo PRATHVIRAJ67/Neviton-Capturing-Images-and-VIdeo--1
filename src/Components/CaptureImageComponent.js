@@ -12,6 +12,20 @@ const CaptureImageComponent = () => {
   const captureImage = () => {
     const imageSrc = webcamRef.current.getScreenshot();
     if (imageSrc) {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.src = imageSrc;
+      img.onload = () => {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0);
+        ctx.font = '20px Arial';
+        ctx.fillStyle = 'black';
+        ctx.fillText(new Date().toLocaleString(), 10, 30);
+        const timestampedImageSrc = canvas.toDataURL('image/jpeg');
+        setCapturedImages([...capturedImages, timestampedImageSrc]);
+      };
       setCapturedImages([...capturedImages, imageSrc]);
     }
   };
